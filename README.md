@@ -11,6 +11,7 @@ My personal Arch Linux + Hyprland setup.
 - SwayNC
 - Hypridle
 - Hyprlock
+- HyprMod (optional)
 
 ## Preview
 
