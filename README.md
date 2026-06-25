@@ -9,7 +9,8 @@ My personal Arch Linux + Hyprland setup.
 - Kitty
 - Rofi
 - SwayNC
-- Dunst
+- Hypridle
+- Hyprlock
 
 ## Preview
 
