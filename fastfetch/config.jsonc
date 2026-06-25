@@ -1,0 +1,105 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/ascii/violet.txt",
+    "padding": {
+      "right": 3
+    }
+  },
+
+  "display": {
+    "separator": " ➜ "
+  },
+
+  "modules": [
+    {
+      "type": "title",
+      "color": {
+        "user": "magenta",
+        "at": "yellow",
+        "host": "blue"
+      }
+    },
+
+    {
+      "type": "custom",
+      "format": "────────────────────────────"
+    },
+
+    {
+      "type": "os",
+      "key": "󰣇 OS"
+    },
+
+    {
+      "type": "kernel",
+      "key": "󰒋 Kernel"
+    },
+
+    {
+      "type": "packages",
+      "key": "󰏖 Packages"
+    },
+
+    {
+      "type": "wm",
+      "key": "󱂬 WM"
+    },
+
+    {
+      "type": "terminal",
+      "key": " Terminal"
+    },
+
+    {
+      "type": "shell",
+      "key": "󰘳 Shell"
+    },
+
+    {
+      "type": "custom",
+      "format": "────────────────────────────"
+    },
+
+    {
+      "type": "cpu",
+      "key": "󰍛 CPU"
+    },
+
+    {
+      "type": "gpu",
+      "key": "󰢮 GPU"
+    },
+
+    {
+      "type": "memory",
+      "key": "󰑭 Memory"
+    },
+
+    {
+      "type": "disk",
+      "key": "󰋊 Disk"
+    },
+
+    {
+      "type": "uptime",
+      "key": "󰔚 Uptime"
+    },
+
+    {
+      "type": "localip",
+      "key": "󰩟 IP"
+    },
+
+    {
+      "type": "custom",
+      "format": ""
+    },
+
+    {
+      "type": "colors"
+    }
+  ]
+}

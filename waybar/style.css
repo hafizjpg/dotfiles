@@ -1,0 +1,265 @@
+/* =========================
+   Violet Evergarden Theme
+   ========================= */
+
+/* Palette */
+@define-color bg0 #141421;
+@define-color bg1 #1b1b2d;
+@define-color bg2 #23233a;
+@define-color bg3 #2c2c48;
+
+@define-color fg #f5f1fa;
+
+@define-color violet #9d7cd8;
+@define-color lavender #b7a1e6;
+@define-color blue #6f8edc;
+@define-color gold #d8b46a;
+@define-color rose #c38ea8;
+
+@define-color border #3a3554;
+
+/* =========================
+   Global
+   ========================= */
+
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 15px;
+    min-height: 10px;
+}
+
+window#waybar {
+    background: rgba(20, 20, 33, 0.55);
+    border: 1px solid rgba(183, 161, 230, 0.15);
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+/* =========================
+   Shared Module Style
+   ========================= */
+
+#custom-archicon,
+#clock,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#idle_inhibitor,
+#pulseaudio,
+#pulseaudio-slider,
+#network,
+#language {
+    color: @fg;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 12px;
+    padding-right: 12px;
+    transition: all 0.25s ease;
+}
+
+/* Left rounded */
+#custom-archicon,
+#cpu,
+#idle_inhibitor {
+    margin-left: 5px;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+/* Right rounded */
+#clock,
+#temperature,
+#language {
+    margin-right: 5px;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* =========================
+   Left Modules
+   ========================= */
+
+#custom-archicon {
+    background: @bg1;
+    color: @gold;
+    font-size: 22px;
+    padding-right: 18px;
+}
+
+#cpu {
+    background: @violet;
+    color: @fg;
+}
+
+#memory {
+    background: @lavender;
+    color: @bg0;
+}
+
+#disk {
+    background: @rose;
+    color: @bg0;
+}
+
+#temperature {
+    background: @gold;
+    color: @bg0;
+}
+
+#clock {
+    background: @blue;
+    color: @fg;
+}
+
+/* =========================
+   Workspaces
+   ========================= */
+
+#workspaces {
+    background: rgba(27, 27, 45, 0.85);
+    border: 1px solid @border;
+    border-radius: 12px;
+
+    margin: 6px 5px;
+    padding: 0px 8px;
+}
+
+#workspaces button {
+    background: transparent;
+    color: #8d89a8;
+
+    border-radius: 8px;
+    padding: 4px 6px;
+
+    transition: all 0.25s ease;
+}
+
+#workspaces button.occupied {
+    color: @lavender;
+}
+
+#workspaces button.active {
+    color: @gold;
+    background: rgba(157, 124, 216, 0.18);
+}
+
+#workspaces button:hover {
+    color: @lavender;
+    background: rgba(183, 161, 230, 0.10);
+}
+
+/* =========================
+   Taskbar
+   ========================= */
+
+#taskbar {
+    background: transparent;
+    border-radius: 12px;
+
+    padding: 0px 5px;
+    margin: 6px 5px;
+}
+
+#taskbar button {
+    padding: 0px 6px;
+    margin: 0px 3px;
+
+    border-radius: 8px;
+
+    transition: all 0.25s ease;
+}
+
+#taskbar button.active {
+    background: rgba(157, 124, 216, 0.15);
+}
+
+#taskbar button:hover {
+    background: rgba(183, 161, 230, 0.12);
+}
+
+/* =========================
+   Right Modules
+   ========================= */
+
+#idle_inhibitor {
+    background: @blue;
+    color: @fg;
+    padding-right: 15px;
+}
+
+#pulseaudio {
+    background: @lavender;
+    color: @bg0;
+    min-width: 60px;
+}
+
+#pulseaudio-slider {
+    background: @rose;
+    color: @bg0;
+    min-width: 55px;
+}
+
+#network {
+    background: @violet;
+    color: @fg;
+    padding-right: 13px;
+}
+
+#language {
+    background: @gold;
+    color: @bg0;
+    padding-right: 15px;
+}
+
+/* =========================
+   Hover Effects
+   ========================= */
+
+#clock:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#temperature:hover,
+#idle_inhibitor:hover,
+#pulseaudio:hover,
+#network:hover,
+#language:hover,
+#custom-archicon:hover {
+    opacity: 0.90;
+}
+
+/* =========================
+   Tooltip
+   ========================= */
+
+tooltip {
+    background: @bg1;
+    border: 1px solid @border;
+    border-radius: 12px;
+}
+
+tooltip label {
+    color: @fg;
+}
+
+/* =========================
+   Animation
+   ========================= */
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 3px rgba(183, 161, 230, 0.2);
+    }
+
+    to {
+        box-shadow: 0 0 12px rgba(216, 180, 106, 0.4);
+    }
+}
+
+#workspaces button.active {
+    animation: glow 2s ease-in-out infinite alternate;
+}
