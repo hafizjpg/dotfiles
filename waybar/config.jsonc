@@ -1,12 +1,13 @@
 {
   "layer": "top",
   "position": "bottom",
+  "height": 38,
   "autohide": true,
   "autohide-blocked": false,
   "exclusive": true,
   "passthrough": false,
   "gtk-layer-shell": true,
-  /* === Modules Order === */
+
   "modules-left": [
     "custom/archicon",
     "clock",
@@ -15,72 +16,81 @@
     "disk",
     "temperature"
   ],
+
   "modules-center": [
     "hyprland/workspaces"
   ],
+
   "modules-right": [
     "wlr/taskbar",
     "idle_inhibitor",
     "pulseaudio/slider",
     "pulseaudio",
     "network",
-    "hyprland/language"
+    "custom/notification"
   ],
-  /* === Modules Left === */
+
   "custom/archicon": {
     "format": "",
     "on-click": "/home/intflt/.config/rofi/launchers/type-6/launcher.sh",
     "on-click-right": "/home/intflt/.config/scripts/powermenu.sh",
     "tooltip": false
   },
+
   "clock": {
-    "timezone": "America/Mexico_City",
-    "format": "{:%I:%M  %d, %m}",
+    "timezone": "Asia/Makassar",
+    "format": "{:%H:%M}",
     "tooltip-format": "{calendar}",
     "calendar": {
       "mode": "month"
     }
   },
+
   "cpu": {
     "format": "{usage}% ",
     "tooltip": true,
-    "tooltip-format": "Uso de CPU: {usage}%\nNúcleos: {cores}"
+    "tooltip-format": "CPU Usage: {usage}%\nCores: {cores}"
   },
+
   "memory": {
     "format": "{}% 󰍛",
     "tooltip": true,
-    "tooltip-format": "RAM en uso: {used} / {total} ({percentage}%)"
+    "tooltip-format": "RAM: {used} / {total} ({percentage}%)"
   },
+
   "disk": {
     "format": "{percentage_free}% ",
     "tooltip": true,
-    "tooltip-format": "Espacio libre: {free} / {total} ({percentage_free}%)"
+    "tooltip-format": "Free Space: {free} / {total} ({percentage_free}%)"
   },
+
   "temperature": {
     "format": "{temperatureC}°C {icon}",
     "tooltip": true,
-    "tooltip-format": "Temperatura actual: {temperatureC}°C\nCrítico si > 80°C",
+    "tooltip-format": "Temperature: {temperatureC}°C",
     "format-icons": [
       ""
     ]
   },
-  /* === Modules Center === */
+
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "default": "",
-      "active": ""
+      "default": "",
+      "active": ""
     },
     "persistent-workspaces": {
-      "*": 2
+      "*": 5
     },
     "disable-scroll": true,
     "all-outputs": true,
     "show-special": true
   },
-  /* === Modules Right === */
+
   "wlr/taskbar": {
     "format": "{icon}",
+    "icon-size": 18,
+    "spacing": 6,
     "all-outputs": true,
     "active-first": true,
     "tooltip-format": "{name}",
@@ -90,6 +100,7 @@
       "rofi"
     ]
   },
+
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -97,35 +108,54 @@
       "deactivated": ""
     }
   },
+
   "pulseaudio/slider": {
     "format": "{volume}%",
-    "format-muted": " MUTE",
+    "format-muted": "󰖁 Mute",
     "step": 5,
     "tooltip": false
   },
+
   "pulseaudio": {
-    "format": "{volume}% {icon}",
-    "format-muted": " {format_source}",
+    "format": "{icon} {volume}%",
+    "format-muted": "󰖁 Muted",
     "format-icons": {
       "default": [
-        "",
-        ""
+        "󰕿",
+        "󰖀",
+        "󰕾"
       ]
     }
   },
+
   "network": {
     "format": "{ifname}",
     "format-ethernet": "{ifname} 󰈀",
-    "format-disconnected": " ",
-    "tooltip-format": " {ifname} via {gwaddr}",
-    "tooltip-format-ethernet": " {ifname} {ipaddr}/{cidr}",
+    "format-disconnected": "󰖪",
+    "tooltip-format": "{ifname} via {gwaddr}",
+    "tooltip-format-ethernet": "{ifname} {ipaddr}/{cidr}",
     "tooltip-format-disconnected": "Disconnected",
     "max-length": 50
   },
-  "hyprland/language": {
-    "format": "{} ",
-    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
-    "format-es": "ESP",
-    "format-en": "ENG"
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "<span size='16pt'>{icon}</span>",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   }
 }

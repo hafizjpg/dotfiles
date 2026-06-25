@@ -3,14 +3,16 @@
 ---------------------
 
 -- Set programs that you use
-local terminal    = "kitty"
-local fileManager = "thunar"
-local menu        = "~/.config/rofi/launchers/type-6/launcher.sh"
-local web        = "firefox"
+local terminal      = "kitty"
+local fileManager   = "thunar"
+local menu          = "~/.config/rofi/launchers/type-6/launcher.sh"
+local web           = "firefox"
 local editor        = "code"
 local reload        = "~/.config/scripts/reload.sh"
-local clipboard     = "cliphist list | rofi -dmenu | cliphist decode | wl-copy"
 local dashboard     = "~/.config/scripts/dashboard.sh"
+local lock          = "hyprlock"
+local ss            = "hyprshot -m window"
+local ssm           = "hyprshot -m output"
 ---------------------
 ---- KEYBINDINGS ----
 ---------------------
@@ -19,7 +21,9 @@ local mainMod = "SUPER"
 
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(reload))
-hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(clipboard))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd(lock))
+hl.bind(mainMod .. " + PRINT", hl.dsp.exec_cmd(ss))
+hl.bind(mainMod .. " + SHIFT + PRINT", hl.dsp.exec_cmd(ssm))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(dashboard))
 local closeWindowBind = hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'"))

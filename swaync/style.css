@@ -1,0 +1,191 @@
+@import url("./tokens/variables.css");
+@import url("./tokens/title-dnd.css");
+@import url("./tokens/button-grid.css");
+@import url("./tokens/slider.css");
+@import url("./tokens/mpris.css");
+@import url("./tokens/notification.css");
+
+* {
+  outline: none;
+  font-size: 16px;
+  transition: all var(--t-fast);
+}
+
+.background,
+.view {
+  background: rgba(0, 0, 0, 0.55);
+}
+
+/* ------------------------
+   BUTTONS
+   ------------------------ */
+
+button {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+button:hover {
+  background: alpha(var(--accent), 0.08);
+}
+
+button:focus {
+  outline-width: 2px;
+  outline-style: solid;
+  outline-color: var(--accent);
+  outline-offset: 2px;
+}
+
+/* ------------------------
+   CONTROL CENTER
+   ------------------------ */
+
+.control-center {
+  padding: 18px;
+  margin: 12px;
+
+  background: var(--bg-panel);
+
+  border: 2px solid var(--border-glass);
+  border-radius: var(--radius-panel);
+
+  box-shadow:
+    0 0 30px rgba(0,0,0,0.25),
+    0 12px 40px rgba(0,0,0,0.35);
+
+  min-width: 420px;
+}
+
+/* ------------------------
+   SCROLLBAR
+   ------------------------ */
+
+.control-center scrollbar {
+  background: transparent;
+  border: none;
+}
+
+.control-center scrollbar slider {
+  min-width: 6px;
+  border-radius: 999px;
+
+  background: var(--accent-dim);
+}
+
+.control-center scrollbar slider:hover {
+  background: var(--accent-hover);
+}
+
+.control-center scrollbar slider:active {
+  background: var(--accent);
+}
+
+/* ------------------------
+   NOTIFICATION GROUP
+   ------------------------ */
+
+.notification-group {
+  margin: 8px 0;
+}
+
+.notification-group.collapsed {
+  background: var(--bg-widget);
+
+  border: 1px solid var(--border-glass);
+
+  border-radius: var(--radius-widget);
+
+  padding: 4px;
+}
+
+.notification-group.collapsed:hover {
+  background: alpha(var(--accent), 0.05);
+}
+
+/* ------------------------
+   NOTIFICATION ROW
+   ------------------------ */
+
+.notification-row {
+  padding: 6px 2px;
+}
+
+/* ------------------------
+   NOTIFICATION CARD
+   ------------------------ */
+
+.notification {
+  background: var(--bg-widget);
+
+  border: 1px solid transparent;
+
+  border-radius: var(--radius-widget);
+
+  padding: 12px;
+  margin: 4px 0;
+}
+
+.notification:hover {
+  border-color: var(--accent-dim);
+
+  background: alpha(var(--accent), 0.04);
+}
+
+/* ------------------------
+   CLOSE BUTTON
+   ------------------------ */
+
+.close-button {
+  border-radius: 999px;
+}
+
+.close-button:hover {
+  background: rgba(255, 90, 90, 0.15);
+}
+
+/* ------------------------
+   TITLES
+   ------------------------ */
+
+.summary {
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.time {
+  opacity: 0.7;
+  font-size: 12px;
+}
+
+/* ------------------------
+   SEPARATORS
+   ------------------------ */
+
+.separator {
+  min-height: 1px;
+  background: var(--border-glass);
+  margin: 8px 0;
+}
+
+/* ------------------------
+   ANIMATION
+   ------------------------ */
+
+.notification-row:hover {
+  transform: translateY(-1px);
+}
+
+.control-center {
+  background: linear-gradient(
+    180deg,
+    rgba(20,20,33,0.95),
+    rgba(27,27,45,0.92)
+  );
+
+  border: 2px solid rgba(157,124,216,0.35);
+
+  box-shadow:
+    0 0 20px rgba(157,124,216,0.15),
+    0 0 50px rgba(0,0,0,0.45);
+}

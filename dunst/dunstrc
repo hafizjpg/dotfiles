@@ -1,0 +1,31 @@
+[global]
+monitor = 0
+follow = mouse
+
+width = 350
+height = 300
+
+offset = 20x20
+
+corner_radius = 16
+padding = 16
+
+frame_width = 2
+frame_color = "#9d7cd8"
+
+separator_height = 2
+
+font = JetBrainsMono Nerd Font 11
+
+markup = yes
+
+history_length = 100
+
+background = "#1d1b2d"
+foreground = "#f5f1fa"
+
+icon_corner_radius = 8
+
+show_indicators = yes
+
+sticky_history = yes
