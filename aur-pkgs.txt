@@ -1,0 +1,6 @@
+anifetch-cli
+lyse
+peaclock
+waypaper
+yay
+yay-debug
