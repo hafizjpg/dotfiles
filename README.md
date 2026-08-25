@@ -22,7 +22,6 @@
 <br/>
 
 | SCREENSHOTS |
-| :---: | :---: |
 | <img width="1366" height="768" alt="2026-08-25-103310_hyprshot" src="https://github.com/user-attachments/assets/8738f5c0-c918-4888-b925-28d119f2c3cf" /> |
 
 </div>
