@@ -1,0 +1,108 @@
+#!/usr/bin/env bash
+# hyprfetch — a lightweight, responsive system-info fetch for Hyprland
+#
+# Usage:
+#   chmod +x hyprfetch
+#   ./hyprfetch
+#
+# Requires: bash, awk. hyprctl is optional (adds Hyprland-specific rows
+# when running inside a live Hyprland session).
+#
+# No ascii art — just a plain, always-fits system info list.
+
+set -u
+
+# ---------- colors (disabled automatically if not a tty or NO_COLOR is set) ----------
+if [ -t 1 ] && [ -z "${NO_COLOR:-}" ]; then
+  c0="\033[0m"; c1="\033[1;34m"; c2="\033[1;36m"; c3="\033[1;35m"
+else
+  c0=""; c1=""; c2=""; c3=""
+fi
+
+# ---------- gather system info ----------
+user="${USER:-$(whoami)}"
+host="$(hostname 2>/dev/null || cat /etc/hostname 2>/dev/null || echo unknown)"
+
+os="Linux"
+if [ -r /etc/os-release ]; then
+  os="$(. /etc/os-release 2>/dev/null; echo "${PRETTY_NAME:-Linux}")"
+fi
+
+kernel="$(uname -sr 2>/dev/null)"
+uptime_str="$(uptime -p 2>/dev/null | sed 's/^up //')"
+shell_name="$(basename "${SHELL:-sh}")"
+term="${TERM:-unknown}"
+
+if command -v pacman >/dev/null 2>&1; then
+  pkgs="$(pacman -Qq 2>/dev/null | wc -l) (pacman)"
+elif command -v dpkg-query >/dev/null 2>&1; then
+  pkgs="$(dpkg-query -f '.\n' -W 2>/dev/null | wc -l) (dpkg)"
+elif command -v rpm >/dev/null 2>&1; then
+  pkgs="$(rpm -qa 2>/dev/null | wc -l) (rpm)"
+elif command -v xbps-query >/dev/null 2>&1; then
+  pkgs="$(xbps-query -l 2>/dev/null | wc -l) (xbps)"
+else
+  pkgs="unknown"
+fi
+
+if [ -r /proc/meminfo ]; then
+  mem_total="$(awk '/MemTotal/{print int($2/1024)}' /proc/meminfo)"
+  mem_avail="$(awk '/MemAvailable/{print int($2/1024)}' /proc/meminfo)"
+  if [ -n "${mem_total:-}" ] && [ -n "${mem_avail:-}" ]; then
+    memory="$((mem_total - mem_avail))MiB / ${mem_total}MiB"
+  else
+    memory="unknown"
+  fi
+else
+  memory="unknown"
+fi
+
+wm="${XDG_CURRENT_DESKTOP:-unknown}"
+monitors=""
+workspaces=""
+
+if command -v hyprctl >/dev/null 2>&1 && [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+  hypr_version="$(hyprctl version 2>/dev/null | awk 'NR==1{print $2}')"
+  wm="Hyprland ${hypr_version:-}"
+  monitors="$(hyprctl monitors 2>/dev/null | awk '
+    /^Monitor/ {name=$2}
+    /^[[:space:]]+[0-9]+x[0-9]+@/ {gsub(/^[ \t]+/,""); printf "%s(%s) ", name, $1}
+  ')"
+  workspaces="$(hyprctl workspaces 2>/dev/null | grep -c '^workspace ID')"
+fi
+
+# ---------- pacman package count ----------
+if command -v pacman >/dev/null 2>&1; then
+  pacman_pkgs="$(pacman -Qq 2>/dev/null | wc -l)"
+else
+  pacman_pkgs="unknown"
+fi
+
+# ---------- disk usage (root filesystem) ----------
+if command -v df >/dev/null 2>&1; then
+  storage="$(df -h / 2>/dev/null | awk 'NR==2{print $3" / "$2" ("$5")"}')"
+  storage="${storage:-unknown}"
+else
+  storage="unknown"
+fi
+
+# ---------- info rows: "label|value" ----------
+rows=()
+rows+=("OS|$os")
+rows+=("Uptime|${uptime_str:-unknown}")
+rows+=("Pacman|$pacman_pkgs")
+rows+=("Shell|$shell_name")
+rows+=("WM|$wm")
+rows+=("Memory|$memory")
+rows+=("Storage|$storage")
+
+# ---------- render (plain info list, no logo, no width branching needed) ----------
+for row in "${rows[@]}"; do
+  label="${row%%|*}"
+  value="${row#*|}"
+  if [ -z "$label" ]; then
+    printf "%b\n" "$value"
+  else
+    printf "${c1}%-10s${c0} %b\n" "$label" "$value"
+  fi
+done

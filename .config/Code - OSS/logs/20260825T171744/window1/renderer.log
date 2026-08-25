@@ -1,0 +1,3 @@
+2026-08-25 17:17:46.365 [info] Started local extension host with pid 49625.
+2026-08-25 17:17:46.614 [error] [vscode.mermaid-markdown-features]: Extension 'vscode.mermaid-markdown-features' CANNOT use 'legacyToolReferenceFullNames' without the 'chatParticipantPrivate' API proposal enabled
+2026-08-25 17:17:47.461 [warning] [DefaultAccount] Attempt 1 to get sessions failed: Canceled

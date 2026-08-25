@@ -1,0 +1,4 @@
+2026-08-25 17:17:47.328 [info] Extension host with pid 49625 started
+2026-08-25 17:17:47.328 [info] Skipping acquiring lock for /home/hfz/.config/Code - OSS/User/workspaceStorage/3fa1af01857be0546f66ea66256c04ac.
+2026-08-25 17:17:47.465 [info] Extension host terminating: received terminate message from renderer
+2026-08-25 17:17:47.467 [info] Extension host with pid 49625 exiting with code 0

@@ -1,0 +1,5 @@
+2026-08-25 18:58:25.253 [info] Started local extension host with pid 713471.
+2026-08-25 18:58:26.134 [error] [vscode.mermaid-markdown-features]: Extension 'vscode.mermaid-markdown-features' CANNOT use 'legacyToolReferenceFullNames' without the 'chatParticipantPrivate' API proposal enabled
+2026-08-25 18:58:26.931 [info] [AccountPolicyGate] apply: state=inactive, reason=undefined, isRestricted=false
+2026-08-25 18:58:28.286 [info] [perf] Render performance baseline is 35ms
+2026-08-25 18:58:31.929 [info] [AccountPolicyGate] apply: state=inactive, reason=undefined, isRestricted=false

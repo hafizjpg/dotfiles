@@ -1,0 +1,77 @@
+/* wlogout base layout */
+window {
+    font-family: "FiraCode Nerd Font", "JetBrainsMono Nerd Font", sans-serif;
+    background-color: rgba(15, 15, 20, 0.85);
+}
+
+/* Base button styling */
+button {
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    border: 2px solid #313244;
+    border-radius: 16px;
+    margin: 10px;
+    font-size: 20px;
+    background-repeat: no-repeat;
+    background-position: center 30%;
+    background-size: 25%;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Hover effects */
+button:hover {
+    background-color: #313244;
+    border-color: #89b4fa;
+    color: #89b4fa;
+    box-shadow: 0px 0px 15px rgba(137, 180, 250, 0.3);
+}
+
+/* Individual button icons and specific hover colors */
+#lock {
+    background-image: image(url("/usr/share/wlogout/icons/lock.png"));
+}
+#lock:hover {
+    border-color: #f9e2af;
+    color: #f9e2af;
+}
+
+#logout {
+    background-image: image(url("/usr/share/wlogout/icons/logout.png"));
+}
+#logout:hover {
+    border-color: #fab387;
+    color: #fab387;
+}
+
+#suspend {
+    background-image: image(url("/usr/share/wlogout/icons/suspend.png"));
+}
+#suspend:hover {
+    border-color: #a6e3a1;
+    color: #a6e3a1;
+}
+
+#hibernate {
+    background-image: image(url("/usr/share/wlogout/icons/hibernate.png"));
+}
+#hibernate:hover {
+    border-color: #94e2d5;
+    color: #94e2d5;
+}
+
+#shutdown {
+    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"));
+}
+#shutdown:hover {
+    border-color: #f38ba8;
+    color: #f38ba8;
+    box-shadow: 0px 0px 15px rgba(243, 139, 168, 0.4);
+}
+
+#reboot {
+    background-image: image(url("/usr/share/wlogout/icons/reboot.png"));
+}
+#reboot:hover {
+    border-color: #cba6f7;
+    color: #cba6f7;
+}

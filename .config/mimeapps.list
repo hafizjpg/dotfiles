@@ -1,4 +1,3 @@
-
 [Default Applications]
 text/html=brave-origin.desktop
 x-scheme-handler/http=brave-origin.desktop
@@ -9,3 +8,8 @@ image/jpeg=feh.desktop
 image/png=feh.desktop
 image/gif=feh.desktop
 image/bmp=feh.desktop
+x-scheme-handler/discord=vesktop.desktop
+application/x-zerosize=vlc.desktop
+
+[Added Associations]
+application/x-zerosize=vlc.desktop;
