@@ -1,6 +1,7 @@
 import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Services.SystemTray
+import Quickshell.Services.Pipewire
 import Quickshell.Io
 import QtQuick
 import "." as Local
@@ -20,126 +21,54 @@ PanelWindow {
         right: true
     }
 
-    implicitHeight: Local.Shared.dashboardOpen ? dashboardPanel.y + dashboardPanel.height + 12 : 52
+    implicitHeight: 52
 
-    property int volume: 0
-    property bool muted: false
+    // ---- Pipewire volume tracking ----
+    PwObjectTracker {
+        objects: [ Pipewire.defaultAudioSink ]
+    }
 
-    property string userName: "User"
-    property string sysUptime: "0 mins"
-    property string weatherText: "Loading..."
-    property string ramUsage: "0MB / 0MB"
+    readonly property var audioSink: Pipewire.defaultAudioSink
+    property real volume: bar.audioSink && bar.audioSink.audio ? bar.audioSink.audio.volume : 0
+    property bool muted: bar.audioSink && bar.audioSink.audio ? bar.audioSink.audio.muted : false
+
+    property bool shouldShowOsd: false
+
+    Timer {
+        id: osdHideTimer
+        interval: 1200
+        onTriggered: bar.shouldShowOsd = false
+    }
+
+    function showOsd() {
+        bar.shouldShowOsd = true;
+        osdHideTimer.restart();
+    }
+
+    Connections {
+        target: bar.audioSink ? bar.audioSink.audio : null
+        function onVolumeChanged() { bar.showOsd(); }
+        function onMutedChanged() { bar.showOsd(); }
+    }
 
     function volumeIcon() {
-        if (muted || volume === 0) return "\uf026";
-        if (volume < 50) return "\uf027";
+        if (bar.muted || bar.volume === 0) return "\uf026";
+        if (bar.volume < 0.5) return "\uf027";
         return "\uf028";
     }
 
-    Process {
-        id: volGetProc
-        command: ["wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@"]
-        stdout: SplitParser {
-            onRead: data => {
-                const isMuted = data.includes("[MUTED]");
-                const match = data.match(/Volume:\s+([\d.]+)/);
-                if (match) {
-                    bar.volume = Math.round(parseFloat(match[1]) * 100);
-                }
-                bar.muted = isMuted;
-            }
-        }
-    }
-
-    Process {
-        id: volSetProc
-        command: ["true"]
-    }
-
-    function refreshVolume() {
-        if (!volGetProc.running) {
-            volGetProc.running = true;
-        }
-    }
-
     function changeVolume(deltaPercent) {
-        const val = deltaPercent > 0 ? "5%+" : "5%-";
-        volSetProc.command = ["wpctl", "set-volume", "-l", "1.0", "@DEFAULT_AUDIO_SINK@", val];
-        volSetProc.running = true;
-        refreshTimer.restart();
+        if (!bar.audioSink || !bar.audioSink.audio) return;
+        let newVol = bar.audioSink.audio.volume + (deltaPercent / 100);
+        newVol = Math.max(0, Math.min(1, newVol));
+        bar.audioSink.audio.volume = newVol;
+        bar.showOsd();
     }
 
     function toggleMute() {
-        volSetProc.command = ["wpctl", "set-mute", "@DEFAULT_AUDIO_SINK@", "toggle"];
-        volSetProc.running = true;
-        refreshTimer.restart();
-    }
-
-    Process {
-        id: userInfoProc
-        command: ["whoami"]
-        stdout: SplitParser {
-            onRead: data => bar.userName = data.trim()
-        }
-    }
-
-    Process {
-        id: uptimeProc
-        command: ["uptime", "-p"]
-        stdout: SplitParser {
-            onRead: data => bar.sysUptime = data.replace("up ", "").trim()
-        }
-    }
-
-    Process {
-        id: ramProc
-        command: ["bash", "-c", "free -m | awk '/Mem:/ {print $3\"MB / \"$2\"MB\"}'"]
-        stdout: SplitParser {
-            onRead: data => bar.ramUsage = data.trim()
-        }
-    }
-
-    Process {
-        id: weatherProc
-        command: ["curl", "-s", "--max-time", "3", "wttr.in?format=%c+%t+%C"]
-        stdout: SplitParser {
-            onRead: data => {
-                const cleaned = data.trim();
-                bar.weatherText = cleaned.length > 0 ? cleaned : "Unavailable";
-            }
-        }
-    }
-
-    function refreshSystemInfo() {
-        if (!userInfoProc.running) userInfoProc.running = true;
-        if (!uptimeProc.running) uptimeProc.running = true;
-        if (!ramProc.running) ramProc.running = true;
-        if (!weatherProc.running) weatherProc.running = true;
-    }
-
-    Timer {
-        id: refreshTimer
-        interval: 100
-        onTriggered: bar.refreshVolume()
-    }
-
-    Timer {
-        interval: 3000
-        repeat: true
-        running: true
-        onTriggered: bar.refreshVolume()
-    }
-
-    Timer {
-        interval: 15000
-        repeat: true
-        running: true
-        onTriggered: bar.refreshSystemInfo()
-    }
-
-    Component.onCompleted: {
-        refreshVolume();
-        refreshSystemInfo();
+        if (!bar.audioSink || !bar.audioSink.audio) return;
+        bar.audioSink.audio.muted = !bar.audioSink.audio.muted;
+        bar.showOsd();
     }
 
     readonly property color accent: "#7C4DFF"
@@ -302,7 +231,7 @@ PanelWindow {
                             anchors.verticalCenter: parent.verticalCenter
                         }
                         Text {
-                            text: bar.muted ? "Mute" : bar.volume + "%"
+                            text: bar.muted ? "Mute" : Math.round(bar.volume * 100) + "%"
                             color: bar.ink
                             font.pixelSize: 10
                             font.weight: Font.Medium
@@ -379,135 +308,92 @@ PanelWindow {
                         id: dashHover
                         anchors.fill: parent
                         hoverEnabled: true
-                        onClicked: {
-                            if (Local.Shared.dashboardOpen) {
-                                Local.Shared.dashboardOpen = false;
-                            } else {
-                                Local.Shared.dashboardOpen = true;
-                                bar.refreshSystemInfo();
-                            }
-                        }
+                        onClicked: Local.Shared.dashboardOpen = !Local.Shared.dashboardOpen
                     }
                 }
             }
         }
 
-        Rectangle {
-            id: dashboardPanel
-            width: 300
-            height: 180
-            radius: 16
-            color: bar.surfaceCard
-            border.width: 1
-            border.color: bar.borderOutline
-            visible: Local.Shared.dashboardOpen
-            clip: true
+    }
 
-            anchors {
-                top: notch.bottom
-                topMargin: 8
-                horizontalCenter: parent.horizontalCenter
-            }
+    // ---- Volume OSD popup ----
+    LazyLoader {
+        active: bar.shouldShowOsd
 
-            Column {
-                anchors {
-                    top: parent.top
-                    left: parent.left
-                    right: parent.right
-                    topMargin: 20
-                    leftMargin: 16
-                    rightMargin: 16
-                }
-                spacing: 12
+        PanelWindow {
+            screen: bar.screen
+            aboveWindows: true
+            focusable: false
+            color: "transparent"
 
-                Row {
-                    spacing: 10
-                    anchors.horizontalCenter: parent.horizontalCenter
+            anchors.bottom: true
+            margins.bottom: bar.screen ? bar.screen.height / 6 : 200
+            exclusiveZone: 0
+
+            implicitWidth: 260
+            implicitHeight: 56
+
+            mask: Region {}
+
+            Rectangle {
+                anchors.fill: parent
+                radius: height / 2
+                color: bar.surface
+                border.width: 1
+                border.color: bar.borderOutline
+
+                Item {
+                    anchors {
+                        fill: parent
+                        leftMargin: 16
+                        rightMargin: 16
+                    }
+
+                    Text {
+                        id: osdIcon
+                        text: bar.volumeIcon()
+                        color: bar.muted ? bar.inkDim : bar.accentGlow
+                        font.family: "JetBrainsMono Nerd Font"
+                        font.pixelSize: 18
+                        anchors.left: parent.left
+                        anchors.verticalCenter: parent.verticalCenter
+                    }
+
+                    Text {
+                        id: osdPct
+                        text: bar.muted ? "Mute" : Math.round(bar.volume * 100) + "%"
+                        color: bar.ink
+                        font.pixelSize: 11
+                        font.weight: Font.Medium
+                        font.family: "JetBrainsMono Nerd Font"
+                        anchors.right: parent.right
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 34
+                    }
 
                     Rectangle {
-                        width: 36
-                        height: 36
-                        radius: 18
-                        color: bar.accent
-
-                        Text {
-                            anchors.centerIn: parent
-                            text: "\uf007"
-                            color: bar.ink
-                            font.family: "JetBrainsMono Nerd Font"
-                            font.pixelSize: 16
+                        id: osdTrack
+                        height: 8
+                        radius: 4
+                        color: "#33FFFFFF"
+                        anchors {
+                            left: osdIcon.right
+                            right: osdPct.left
+                            leftMargin: 12
+                            rightMargin: 12
+                            verticalCenter: parent.verticalCenter
                         }
-                    }
 
-                    Column {
-                        anchors.verticalCenter: parent.verticalCenter
-                        Text {
-                            text: bar.userName
-                            color: bar.ink
-                            font.pixelSize: 13
-                            font.weight: Font.Bold
-                            font.family: "JetBrainsMono Nerd Font"
+                        Rectangle {
+                            anchors {
+                                left: parent.left
+                                top: parent.top
+                                bottom: parent.bottom
+                            }
+                            radius: parent.radius
+                            color: bar.muted ? bar.inkDim : bar.accent
+                            width: parent.width * (bar.muted ? 0 : bar.volume)
                         }
-                        Text {
-                            text: "Uptime: " + bar.sysUptime
-                            color: bar.inkDim
-                            font.pixelSize: 10
-                            font.family: "JetBrainsMono Nerd Font"
-                        }
-                    }
-                }
-
-                Rectangle {
-                    width: parent.width
-                    height: 1
-                    color: bar.borderOutline
-                }
-
-                Row {
-                    spacing: 10
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    Text {
-                        text: "\uf185"
-                        color: bar.accentGlow
-                        font.family: "JetBrainsMono Nerd Font"
-                        font.pixelSize: 16
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    Text {
-                        text: bar.weatherText
-                        color: bar.ink
-                        font.pixelSize: 11
-                        font.family: "JetBrainsMono Nerd Font"
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-                }
-
-                Rectangle {
-                    width: parent.width
-                    height: 1
-                    color: bar.borderOutline
-                }
-
-                Row {
-                    spacing: 10
-                    anchors.horizontalCenter: parent.horizontalCenter
-
-                    Text {
-                        text: "\uf85a"
-                        color: bar.accentGlow
-                        font.family: "JetBrainsMono Nerd Font"
-                        font.pixelSize: 14
-                        anchors.verticalCenter: parent.verticalCenter
-                    }
-
-                    Text {
-                        text: "RAM: " + bar.ramUsage
-                        color: bar.ink
-                        font.pixelSize: 11
-                        font.family: "JetBrainsMono Nerd Font"
-                        anchors.verticalCenter: parent.verticalCenter
                     }
                 }
             }

@@ -1,7 +1,0 @@
-2026-08-24 22:21:47.576 [info] StorageMainService: creating application shared storage
-2026-08-24 22:21:47.671 [info] [shared storage] Creating shared storage database at '/home/hfz/.vscode-oss-shared/sharedStorage/state.vscdb' (wasCreated: false)
-2026-08-24 22:21:47.673 [info] [shared storage] Initializing fallback application storage (path: /home/hfz/.config/Code - OSS/User/globalStorage/state.vscdb)
-2026-08-24 22:21:47.688 [info] [shared storage] Fallback application storage initialized with 57 items
-2026-08-24 22:21:47.695 [info] update#setState disabled
-2026-08-24 22:21:47.695 [info] update#ctor - updates are disabled as there is no update URL
-2026-08-24 22:38:42.984 [info] Extension host with pid 52745 exited with code: 0, signal: unknown.

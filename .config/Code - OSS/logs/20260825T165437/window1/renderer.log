@@ -1,0 +1,16 @@
+2026-08-25 16:54:39.385 [info] Started local extension host with pid 14674.
+2026-08-25 16:54:39.430 [error] [vscode.mermaid-markdown-features]: Extension 'vscode.mermaid-markdown-features' CANNOT use 'legacyToolReferenceFullNames' without the 'chatParticipantPrivate' API proposal enabled
+2026-08-25 16:54:41.347 [info] [AccountPolicyGate] apply: state=inactive, reason=undefined, isRestricted=false
+2026-08-25 16:54:46.348 [info] [AccountPolicyGate] apply: state=inactive, reason=undefined, isRestricted=false
+2026-08-25 16:55:27.409 [info] [perf] Render performance baseline is 33ms
+2026-08-25 16:55:28.422 [error] Cannot read properties of null (reading 'getVersionId'): TypeError: Cannot read properties of null (reading 'getVersionId')
+    at vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:1098:27518
+    at r (vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:1982:15654)
+    at Clt.withViewProgress (vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:1982:20655)
+    at a (vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:1982:15960)
+    at Clt.withProgress (vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:1982:16595)
+    at Mnt.diff (vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:1098:27438)
+    at vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:1098:26934
+    at mp.queue (vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:434:73661)
+    at vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:434:75449
+    at vscode-file://vscode-app/usr/lib/code/out/vs/workbench/workbench.desktop.main.js:434:74946
