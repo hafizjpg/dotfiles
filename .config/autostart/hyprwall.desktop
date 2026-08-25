@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=HyprWall
+Exec=hyprwall --daemon
+X-GNOME-Autostart-enabled=true

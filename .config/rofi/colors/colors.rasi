@@ -1,0 +1,16 @@
+/* ~/.config/rofi/colors.rasi
+ * Palet: Void Purple. Import di baris pertama theme.rasi kamu:
+ * @import "colors.rasi"
+ */
+* {
+    background:     #0a0910e6;   /* background utama, sedikit transparan */
+    background-alt:     #12101acc;   /* panel/list background */
+
+    foreground:     #F7EAF3ff;   /* teks utama */
+    selected:     #8a839cff;   /* teks dim */
+
+    active:  #6E50EBff;   /* ungu utama */
+
+    urgent:  #ff5c7aff;
+    border:  #6E50EB55;
+}

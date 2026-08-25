@@ -1,0 +1,150 @@
+2026-08-24 22:40:35.020 [info] [main] Log level: Info
+2026-08-24 22:40:35.020 [info] [main] Validating found git in: "git"
+2026-08-24 22:40:35.020 [info] [main] Using git "2.55.0" from "git"
+2026-08-24 22:40:35.020 [info] [Model][doInitialScan] Initial repository scan started
+2026-08-24 22:40:35.020 [info] > git rev-parse --show-toplevel [9ms]
+2026-08-24 22:40:35.020 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.025 [info] > git rev-parse --show-toplevel [7ms]
+2026-08-24 22:40:35.025 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.039 [info] > git rev-parse --show-toplevel [3ms]
+2026-08-24 22:40:35.039 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.046 [info] > git rev-parse --show-toplevel [3ms]
+2026-08-24 22:40:35.046 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.054 [info] > git rev-parse --show-toplevel [3ms]
+2026-08-24 22:40:35.054 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.062 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.062 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.071 [info] > git rev-parse --show-toplevel [3ms]
+2026-08-24 22:40:35.071 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.127 [info] > git rev-parse --show-toplevel [51ms]
+2026-08-24 22:40:35.127 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.138 [info] > git rev-parse --show-toplevel [3ms]
+2026-08-24 22:40:35.138 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.144 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.144 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.155 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.155 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.164 [info] > git rev-parse --show-toplevel [0ms]
+2026-08-24 22:40:35.164 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.172 [info] > git rev-parse --show-toplevel [3ms]
+2026-08-24 22:40:35.172 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.179 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.179 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.186 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.186 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.193 [info] > git rev-parse --show-toplevel [1ms]
+2026-08-24 22:40:35.193 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.201 [info] > git rev-parse --show-toplevel [0ms]
+2026-08-24 22:40:35.201 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.209 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.209 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.215 [info] > git rev-parse --show-toplevel [1ms]
+2026-08-24 22:40:35.215 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.223 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.223 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.236 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.236 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.237 [info] [Model][doInitialScan] Initial repository scan completed - repositories (0), closed repositories (0), parent repositories (0), unsafe repositories (0)
+2026-08-24 22:40:35.295 [info] > git rev-parse --show-toplevel [14ms]
+2026-08-24 22:40:35.295 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.306 [info] > git rev-parse --show-toplevel [3ms]
+2026-08-24 22:40:35.306 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.585 [info] > git rev-parse --show-toplevel [1ms]
+2026-08-24 22:40:35.585 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.724 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:35.724 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:35.952 [info] > git rev-parse --show-toplevel [1ms]
+2026-08-24 22:40:35.952 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:36.336 [info] > git rev-parse --show-toplevel [1ms]
+2026-08-24 22:40:36.336 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:40:37.246 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:40:37.246 [info] fatal: not a git repository (or any of the parent directories): .git
+2026-08-24 22:41:20.942 [info] > git rev-parse --show-toplevel [2ms]
+2026-08-24 22:41:20.952 [info] > git rev-parse --git-dir --git-common-dir --show-superproject-working-tree [3ms]
+2026-08-24 22:41:20.991 [info] [Model][openRepository] Opened repository (path): /home/hfz/.config/quickshell/hyprquickpaper
+2026-08-24 22:41:20.991 [info] [Model][openRepository] Opened repository (real path): /home/hfz/.config/quickshell/hyprquickpaper
+2026-08-24 22:41:20.991 [info] [Model][openRepository] Opened repository (kind): repository
+2026-08-24 22:41:21.008 [info] > git config --get --local core.virtualfilesystem [8ms]
+2026-08-24 22:41:21.008 [warning] [Git][config] git config failed: Failed to execute git
+2026-08-24 22:41:21.010 [info] > git config --get commit.template [5ms]
+2026-08-24 22:41:21.014 [warning] [Git][getHEAD] Failed to parse HEAD file: Repository is using reftable format.
+2026-08-24 22:41:21.019 [info] > git symbolic-ref --short HEAD [5ms]
+2026-08-24 22:41:21.019 [info] fatal: No such ref: HEAD
+2026-08-24 22:41:21.026 [info] > git rev-parse HEAD [1ms]
+2026-08-24 22:41:21.027 [info] fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+2026-08-24 22:41:21.042 [info] > git status -z -uall [8ms]
+2026-08-24 22:41:21.043 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-08-24 22:41:21.075 [info] > git config --get commit.template [14ms]
+2026-08-24 22:41:21.076 [info] > git symbolic-ref --short HEAD [22ms]
+2026-08-24 22:41:21.076 [info] fatal: No such ref: HEAD
+2026-08-24 22:41:21.087 [info] > git rev-parse HEAD [6ms]
+2026-08-24 22:41:21.087 [info] fatal: ambiguous argument 'HEAD': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+2026-08-24 22:41:21.103 [info] > git status -z -uall [8ms]
+2026-08-24 22:41:21.104 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-08-24 22:41:21.524 [info] > git check-ignore -v -z --stdin [2ms]
+2026-08-24 22:41:25.342 [info] > git symbolic-ref --short HEAD [7ms]
+2026-08-24 22:41:25.348 [info] > git config --get commit.template [7ms]
+2026-08-24 22:41:25.352 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [5ms]
+2026-08-24 22:41:25.358 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/hfz/.config/quickshell/hyprquickpaper/.git/refs/remotes/origin/main'
+2026-08-24 22:41:25.360 [info] > git rev-parse refs/remotes/origin/main [3ms]
+2026-08-24 22:41:25.374 [info] > git status -z -uall [8ms]
+2026-08-24 22:41:25.375 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-08-24 22:41:25.405 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [3ms]
+2026-08-24 22:41:25.412 [info] > git config --get --local branch.main.vscode-merge-base [2ms]
+2026-08-24 22:41:25.412 [warning] [Git][config] git config failed: Failed to execute git
+2026-08-24 22:41:25.420 [info] > git reflog main --grep-reflog=branch: Created from *. [3ms]
+2026-08-24 22:41:25.425 [info] > git symbolic-ref --short refs/remotes/origin/HEAD [1ms]
+2026-08-24 22:41:25.432 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/origin/main refs/remotes/origin/main [2ms]
+2026-08-24 22:41:25.438 [info] > git config --add --local branch.main.vscode-merge-base origin/main [2ms]
+2026-08-24 22:41:25.449 [info] > git symbolic-ref --short HEAD [7ms]
+2026-08-24 22:41:25.454 [info] > git config --get commit.template [6ms]
+2026-08-24 22:41:25.454 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [1ms]
+2026-08-24 22:41:25.458 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/hfz/.config/quickshell/hyprquickpaper/.git/refs/remotes/origin/main'
+2026-08-24 22:41:25.459 [info] > git rev-parse refs/remotes/origin/main [1ms]
+2026-08-24 22:41:25.470 [info] > git status -z -uall [6ms]
+2026-08-24 22:41:25.471 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-08-24 22:41:25.487 [info] > git merge-base refs/heads/main refs/remotes/origin/main [7ms]
+2026-08-24 22:41:25.492 [info] > git merge-base refs/heads/main refs/remotes/origin/main [7ms]
+2026-08-24 22:41:25.498 [info] > git diff --raw --numstat --diff-filter=ADMR -z --find-renames=50% d380bee81a87e7581360f6b386b6dd72469092b1...refs/remotes/origin/main -- [6ms]
+2026-08-24 22:41:25.500 [info] > git diff --raw --numstat --diff-filter=ADMR -z --find-renames=50% d380bee81a87e7581360f6b386b6dd72469092b1...refs/remotes/origin/main -- [2ms]
+2026-08-24 22:41:30.419 [info] > git symbolic-ref --short HEAD [7ms]
+2026-08-24 22:41:30.425 [info] > git config --get commit.template [7ms]
+2026-08-24 22:41:30.426 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2026-08-24 22:41:30.431 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/hfz/.config/quickshell/hyprquickpaper/.git/refs/remotes/origin/main'
+2026-08-24 22:41:30.433 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2026-08-24 22:41:30.444 [info] > git status -z -uall [6ms]
+2026-08-24 22:41:30.446 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-08-24 22:41:31.934 [info] > git check-ignore -v -z --stdin [1ms]
+2026-08-24 22:41:32.994 [info] > git check-ignore -v -z --stdin [5ms]
+2026-08-24 22:41:33.022 [info] > git show --textconv :config.json [7ms]
+2026-08-24 22:41:33.028 [info] > git ls-files --stage -- config.json [7ms]
+2026-08-24 22:41:33.066 [info] > git cat-file -s 528b41983f6815ee34bd5fe3904320a4649d0f05 [32ms]
+2026-08-24 22:41:35.188 [info] > git blame --root --incremental d380bee81a87e7581360f6b386b6dd72469092b1 -- config.json [3ms]
+2026-08-24 22:41:39.718 [info] > git check-ignore -v -z --stdin [2ms]
+2026-08-24 22:41:41.308 [info] > git check-ignore -v -z --stdin [1ms]
+2026-08-24 22:41:41.613 [info] > git symbolic-ref --short HEAD [7ms]
+2026-08-24 22:41:41.619 [info] > git config --get commit.template [7ms]
+2026-08-24 22:41:41.620 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2026-08-24 22:41:41.625 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/hfz/.config/quickshell/hyprquickpaper/.git/refs/remotes/origin/main'
+2026-08-24 22:41:41.627 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2026-08-24 22:41:41.640 [info] > git status -z -uall [7ms]
+2026-08-24 22:41:41.641 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [3ms]
+2026-08-24 22:41:41.957 [info] > git check-ignore -v -z --stdin [2ms]
+2026-08-24 22:42:06.141 [info] > git symbolic-ref --short HEAD [7ms]
+2026-08-24 22:42:06.148 [info] > git config --get commit.template [8ms]
+2026-08-24 22:42:06.149 [info] > git for-each-ref --format=%(refname)%00%(upstream:short)%00%(objectname)%00%(upstream:track)%00%(upstream:remotename)%00%(upstream:remoteref) refs/heads/main refs/remotes/main [2ms]
+2026-08-24 22:42:06.156 [warning] [Git][revParse] Unable to read file: ENOENT: no such file or directory, open '/home/hfz/.config/quickshell/hyprquickpaper/.git/refs/remotes/origin/main'
+2026-08-24 22:42:06.158 [info] > git rev-parse refs/remotes/origin/main [2ms]
+2026-08-24 22:42:06.170 [info] > git status -z -uall [7ms]
+2026-08-24 22:42:06.171 [info] > git for-each-ref --sort -committerdate --format %(refname)%00%(objectname)%00%(*objectname) [2ms]
+2026-08-24 22:42:11.583 [info] > git check-ignore -v -z --stdin [2ms]
+2026-08-24 22:42:11.601 [info] > git show --textconv :shell.qml [6ms]
+2026-08-24 22:42:11.602 [info] > git ls-files --stage -- shell.qml [2ms]
+2026-08-24 22:42:11.607 [info] > git cat-file -s 200459d223beb49da88903857f0d57524cbfb04d [1ms]
+2026-08-24 22:42:49.207 [warning] [Git][getRemotes] Error: ENOENT: no such file or directory, open '/home/hfz/.config/quickshell/hyprquickpaper/.git/config'
+2026-08-24 22:42:49.232 [warning] [Git][getRemotes] Error: ENOENT: no such file or directory, open '/home/hfz/.config/quickshell/hyprquickpaper/.git/config'
+2026-08-24 22:42:50.040 [warning] [Model][getRepositoryExact] Failed to get repository realpath for: "/home/hfz/.config/quickshell/hyprquickpaper". Error:Error: ENOENT: no such file or directory, realpath '/home/hfz/.config/quickshell/hyprquickpaper'

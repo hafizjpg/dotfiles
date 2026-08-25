@@ -1,0 +1,9 @@
+2026/08/25-10:30:27.360 986e Reusing MANIFEST /home/hfz/.config/BraveSoftware/Brave-Origin/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/08/25-10:30:27.360 986e Recovering log #3
+2026/08/25-10:30:27.378 986e Reusing old log /home/hfz/.config/BraveSoftware/Brave-Origin/Default/IndexedDB/https_www.youtube.com_0.indexeddb.leveldb/000003.log 
+2026/08/25-10:30:37.158 986e Level-0 table #5: started
+2026/08/25-10:30:37.177 986e Level-0 table #5: 1605920 bytes OK
+2026/08/25-10:30:37.183 986e Delete type=0 #3
+2026/08/25-10:37:03.587 986e Level-0 table #7: started
+2026/08/25-10:37:03.690 986e Level-0 table #7: 1513012 bytes OK
+2026/08/25-10:37:03.697 986e Delete type=0 #4

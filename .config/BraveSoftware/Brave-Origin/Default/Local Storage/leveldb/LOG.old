@@ -1,0 +1,9 @@
+2026/08/25-10:03:31.176 5 Reusing MANIFEST /home/hfz/.config/BraveSoftware/Brave-Origin/Default/Local Storage/leveldb/MANIFEST-000001
+2026/08/25-10:03:31.182 5 Recovering log #7
+2026/08/25-10:03:31.182 5 Reusing old log /home/hfz/.config/BraveSoftware/Brave-Origin/Default/Local Storage/leveldb/000007.log 
+2026/08/25-10:27:29.810 7 Level-0 table #11: started
+2026/08/25-10:27:29.835 7 Level-0 table #11: 1155781 bytes OK
+2026/08/25-10:27:29.843 7 Delete type=0 #7
+2026/08/25-10:28:12.082 7 Level-0 table #13: started
+2026/08/25-10:28:12.086 7 Level-0 table #13: 81500 bytes OK
+2026/08/25-10:28:12.094 7 Delete type=0 #10
